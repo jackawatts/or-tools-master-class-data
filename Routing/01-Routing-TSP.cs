@@ -1,4 +1,4 @@
-public class DataModel
+class DataModel
 {
     public long[,] DistanceMatrix = {
         { 0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972 }, // New York
