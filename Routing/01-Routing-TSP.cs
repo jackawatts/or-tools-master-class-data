@@ -1,4 +1,4 @@
-class DataModel
+public class DataModel
 {
     public long[,] DistanceMatrix = {
         { 0, 2451, 713, 1018, 1631, 1374, 2408, 213, 2571, 875, 1420, 2145, 1972 }, // New York
@@ -19,8 +19,15 @@ class DataModel
     public int Depot = 0;
 };
 
+public class TSP
+{
+    public static void Main(String[] args)
+    {
+        // TODO
+    }
 
-static void PrintSolution(in RoutingModel routing, in RoutingIndexManager manager, in Assignment solution)
+
+    static void PrintSolution(in RoutingModel routing, in RoutingIndexManager manager, in Assignment solution)
     {
         Console.WriteLine("Objective: {0}", solution.ObjectiveValue());
         // Inspect solution.
@@ -37,3 +44,4 @@ static void PrintSolution(in RoutingModel routing, in RoutingIndexManager manage
         Console.WriteLine("{0}", manager.IndexToNode((int)index));
         Console.WriteLine("Route distance: {0}m", routeDistance);
     }
+}
