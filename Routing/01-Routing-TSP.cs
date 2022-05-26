@@ -18,3 +18,22 @@ class DataModel
     public int VehicleNumber = 1;
     public int Depot = 0;
 };
+
+
+static void PrintSolution(in RoutingModel routing, in RoutingIndexManager manager, in Assignment solution)
+    {
+        Console.WriteLine("Objective: {0}", solution.ObjectiveValue());
+        // Inspect solution.
+        Console.WriteLine("Route:");
+        long routeDistance = 0;
+        var index = routing.Start(0);
+        while (routing.IsEnd(index) == false)
+        {
+            Console.Write("{0} -> ", manager.IndexToNode((int)index));
+            var previousIndex = index;
+            index = solution.Value(routing.NextVar(index));
+            routeDistance += routing.GetArcCostForVehicle(previousIndex, index, 0);
+        }
+        Console.WriteLine("{0}", manager.IndexToNode((int)index));
+        Console.WriteLine("Route distance: {0}m", routeDistance);
+    }
